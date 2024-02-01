@@ -1,0 +1,16 @@
+{
+  "name": "sora-editor-docs",
+  "version": "0.22.2",
+  "type": "module",
+  "description": "documentation for sora-editor",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "markdown-it-mathjax3": "^4.3.2",
+    "open-cli": "^8.0.0",
+    "vitepress": "^1.0.0-rc.40"
+  }
+}
