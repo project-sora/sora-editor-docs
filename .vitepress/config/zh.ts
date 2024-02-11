@@ -80,6 +80,8 @@ function nav(): DefaultTheme.NavItem[] {
 function guideReference(): DefaultTheme.SidebarItem[] {
   return [
     {
+      text: '简介与入门',
+      collapsed: false,
       items: [
         {
           text: '快速开始',
