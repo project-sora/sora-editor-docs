@@ -1,12 +1,3 @@
-<div align="center">
-
-![Banner](public/editor_banner.jpg)
----
-
-<h1>Documentation for sora-editor</h1>
-
-</div>
-
 ## Welcome
 Welcome to [sora-editor](https://github.com/Rosemoe/sora-editor) documentation repository！   
 The documentation site is available at [GitHub Pages](https://project-sora.github.io/sora-editor-docs/).
