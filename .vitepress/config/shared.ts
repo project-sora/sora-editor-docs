@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export const shared = defineConfig({
   title: 'Sora Editor',
+  base: '/sora-editor-docs/',
 
   ignoreDeadLinks: true,
   lastUpdated: true,
