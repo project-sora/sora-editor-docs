@@ -57,9 +57,13 @@ function nav(): DefaultTheme.NavItem[] {
 function guideReference(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Introducation',
+      text: 'Introduction',
       collapsed: false,
       items: [
+        {
+          text: 'Overview',
+          link: '/editor-overview'
+        },
         {
           text: 'Getting Started',
           link: '/getting-started'

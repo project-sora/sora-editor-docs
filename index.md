@@ -24,11 +24,11 @@ features:
     title: Smooth User Experience
     details: Enjoy coding comfort with suitable animations and trasitions.
   - icon: ⚡
-    title: High Peroformance
+    title: High Performance
     details: Run analysis in background workers, incrementally. Get syntax-highlight and code completions in a glance.
   - icon: ✨
     title: Active Development
-    details: We are still continuously enhancing the functionality of the editor to keep it at the forefront of mobile editors.
+    details: We are continuously enhancing the functionality of the editor to keep it at the forefront of mobile editors.
 ---
 
 <style>
