@@ -209,7 +209,7 @@ Declare editor in your layout XML files:
 ```
 It's not necessary to set `text` or `textSize` in XML declaration.
 
-Refer to [XML Attributes]() for more information about its usage in XML.
+Refer to [XML Attributes](/reference/xml-attributes) for more information about its usage in XML.
 ::: tip NOTE
 It is not recommended to use `wrap_content` for editor width or height. In that case, when the text is editted, the editor has to request re-layout which probably causes lags.
 :::
@@ -240,4 +240,4 @@ Not all fields of `DirectAccessProps` can take effect without invalidation. Call
 Methods and fields that marked with `@UnsupportedUserUsage` should not be used. They are visible for internal access.
 :::
 ## Continue
-Go to [Languages](/language.md) and [Color Scheme](/color-scheme.md) to equip the editor with programming language support and your custom color scheme.
+Go to [Language](./using-language.md) and [Color Scheme](./using-color-scheme.md) to equip the editor with programming language support and your custom color scheme.
