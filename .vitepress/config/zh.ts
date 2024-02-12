@@ -14,7 +14,7 @@ export const zh = defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/project-sora/sora-editor-docs/edit/main/docs/:path',
+      pattern: 'https://github.com/project-sora/sora-editor-docs/blob/main/:path',
       text: '在 GitHub 上编辑此页面'
     },
 
@@ -83,6 +83,10 @@ function guideReference(): DefaultTheme.SidebarItem[] {
       text: '简介与入门',
       collapsed: false,
       items: [
+        {
+          text: '概述',
+          link: '/editor-overview'
+        },
         {
           text: '快速开始',
           link: '/getting-started'
