@@ -7,7 +7,7 @@ outline: deep
 * 使用Gradle编译且JDK版本不低于17
 * 您模块的最低Android SDK版本至少为Android L（API 21）
   * 如果您需要使用[语言服务器协议](https://microsoft.github.io/language-server-protocol/)，则要求至少为Android O（API 26）
-* 项目的源代码兼容性和目标兼容性应是`JavaVersion.VERSION_17`
+* 项目的编译兼容性和目标兼容性应是`JavaVersion.VERSION_17`
 ::: details 设置Java源代码兼容性和目标兼容性
 
 ::: code-group
@@ -68,7 +68,7 @@ dependencies {
 
 :::
 
-请将`<versionName>`和`<moduleName>`替换为正确的版本名称和模块名称。你可以添加多个模块到您的项目中。
+请将`<版本名>`和`<模块名>`替换为正确的版本名称和模块名称。你可以添加多个模块到您的项目中。
 
 以下是一个在编辑器中使用TextMate语法高亮的示例，请根据您的实际情况引入：
 
@@ -127,9 +127,29 @@ dependencies {
 | language-textmate   | 一个高级的高亮分析库。你可以借助它来加载textmate语言配置文件并应用于本编辑器。 内部实现来自[tm4e](https://github.com/eclipse/tm4e)。                                                                                                                                                                                     |
 | language-treesitter | 为编辑器提供[tree-sitter](https://tree-sitter.github.io/tree-sitter/)支持。tree-sitter可用于快速、增量地将代码转换 成抽象语法树，以便您向用户提供精确的高亮和自动补全功能。注意此模块仅提供了转换和高亮支持。感谢[android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter/)项目提供的Java绑定库。 |
 
+### 🚧快照构建
+
+通常情况下我们建议使用[正式发布的版本](https://github.com/Rosemoe/sora-editor/releases)。但有时候您可能需要使用最新的构建版本来修复最新出现的错误和新功能。
+
+::: details 如何使用快照构建
+
+快照版本在存储库推送时自动发布。您可以将当前发布的版本名称和短提交哈希值组合在一起，得到快照版本名称。
+
+举个例子, 如果目前最新正式发布的版本是“0.21.1”，短提交哈希值为“97c4963”，则可以将'0.21.1-97c4963-SNAPSHOT'作为版本号导入快照版本到您的项目中。
+
+需要注意的是，使用快照版本您需要额外添加一个maven存储库：
+```Kotlin{3}
+repositories {
+    // ...
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots")
+}
+```
+
+:::
+
 ## 为TextMate配置脱糖
 
-如果您的项目使用了`language-textmate`模块，并且想要在Android N（API 24）以下的设备上运行您的应用，您**必须**启用脱糖以避免兼容性问题。如果您已进行此操作，请看下一部分。
+如果您的项目使用了`language-textmate`模块，并且想要在Android N（API 24）以下的设备上运行您的应用，您**必须**启用[脱糖](https://developer.android.google.cn/studio/write/java8-support#library-desugaring)以避免兼容性问题。如果您已进行此操作，请看下一部分。
 
 如果要启用脱糖，请按照以下说明配置您的**应用模块**。
 
@@ -175,11 +195,61 @@ android {
 
 请确保您的项目中已经包含核心模块`editor`，并且您项目的Gradle相关文件已经成功同步。
 
-核心组件的名称为`io.github.rosemoe.sora.widget.CodeEditor`。您可以通过XML或者Java/Kotlin代码创建组件
+主要的widget类名是`io.github.rosemoe.sora.widget.CodeEditor`。您可以通过XML或Java/Kotlin代码（推荐）创建代码编辑器，但是在XML中只能设置有限的属性。
 
-```Xml
+### 在XML使用
+
+在布局XML文件中声明编辑器：
+
+```XML
 <io.github.rosemoe.sora.widget.CodeEditor
     android:id="@+id/editor"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    app:text="Hello, world!"
+    app:textSize="18sp" />
 ```
+
+无需在XML的声明中设置`text`或者`textSize`。
+
+有关其在XML中的用法，请参考[XML属性](/reference/xml-attributes)。
+
+::: tip 注意
+不建议编辑器宽度或高度是`wrap_content`。因为在这种情况下编辑文本时，编辑器会请求布局重新绘制，可能会导致性能问题或者卡顿。
+:::
+
+### 使用Java/Kotlin代码
+
+如果我们处于`Activity`上下文或者`ViewGroup`中，只需要实例化一个编辑器对象并将其添加到任意的视图组中即可。
+
+::: code-group
+
+```Kotlin [Kotlin]
+val editor = CodeEditor(this)
+editor.setText("Hello, world!") // 设置文本
+editor.typefaceText = Typeface.MONOSPACE // 使用Monospace字体
+editor.nonPrintablePaintingFlags =
+                CodeEditor.FLAG_DRAW_WHITESPACE_LEADING or CodeEditor.FLAG_DRAW_LINE_SEPARATOR or CodeEditor.FLAG_DRAW_WHITESPACE_IN_SELECTION // Show Non-Printable Characters
+vg.add(editor, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+```
+
+```Java [Java]
+var editor = new CodeEditor(this);
+editor.setText("Hello, world!"); // 设置文本
+editor.setTypefaceText(Typeface.MONOSPACE); // 使用Monospace字体
+editor.setNonPrintablePaintingFlags(
+                CodeEditor.FLAG_DRAW_WHITESPACE_LEADING | CodeEditor.FLAG_DRAW_LINE_SEPARATOR | CodeEditor.FLAG_DRAW_WHITESPACE_IN_SELECTION); // Show Non-Printable Characters
+vg.add(editor, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+```
+
+:::
+参考`CodeEditor`中声明的方法和`DirectAccessProps`的字段，您可以对编辑器进行更丰富的配置。
+
+::: warning 请谨慎
+`DirectAccessProps`的字段并非在任何情况下都是立即生效的。在使用被`@InvalidateRequired`标记的字段后需要您显式的调用编辑器的`invalidate()`。
+
+您不应该使用被`@UnsupportedUserUsage`标记的字段，因为它们只能被内部使用。
+:::
+
+## 更进一步
+前往[语言](/language.md)和[配色方案](/color-scheme.md)为编辑器提供编程语言支持和自定义配色方案。
