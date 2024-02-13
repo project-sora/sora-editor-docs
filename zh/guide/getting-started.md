@@ -251,5 +251,29 @@ vg.add(editor, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V
 您不应该使用被`@UnsupportedUserUsage`标记的字段，因为它们只能被内部使用。
 :::
 
+## 释放组件
+当一个`CodeEditor`实例不再被使用的时候，您应该调用其`release()`方法释放编辑器资源和为编辑器服务的后台线程。同时释放编辑器后不应使用此编辑器，避免出现意外错误。
+
+::: code-group
+
+```Kotlin Kotlin
+override fun onDestroy() {
+    super.onDestroy()
+    editor?.release()
+}
+```
+
+```Java Java
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    if (editor != null) {
+        editor.release();
+    }
+}
+```
+
+:::
+
 ## 更进一步
 前往[语言](/language.md)和[配色方案](/color-scheme.md)为编辑器提供编程语言支持和自定义配色方案。
