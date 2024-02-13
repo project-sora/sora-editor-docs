@@ -1,4 +1,4 @@
-import config from '../../package.json'
+import config from '../../../package.json'
 import { defineConfig, type DefaultTheme } from 'vitepress'
 
 
@@ -63,7 +63,8 @@ function guideReference(): DefaultTheme.SidebarItem[] {
         { text: 'Overview', link: 'editor-overview' },
         { text: 'Getting Started', link: 'getting-started' },
         { text: 'Language', link: 'using-language'},
-        { text: 'Color Scheme', link: 'using-color-scheme' }
+        { text: 'Color Scheme', link: 'using-color-scheme' },
+        { text: 'Events and Components', link: 'events-and-components' }
       ]
     }
   ]
