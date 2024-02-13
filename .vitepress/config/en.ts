@@ -60,14 +60,10 @@ function guideReference(): DefaultTheme.SidebarItem[] {
       text: 'Introduction',
       collapsed: false,
       items: [
-        {
-          text: 'Overview',
-          link: '/editor-overview'
-        },
-        {
-          text: 'Getting Started',
-          link: '/getting-started'
-        }
+        { text: 'Overview', link: 'editor-overview' },
+        { text: 'Getting Started', link: 'getting-started' },
+        { text: 'Language', link: 'using-language'},
+        { text: 'Color Scheme', link: 'using-color-scheme' }
       ]
     }
   ]
@@ -79,7 +75,7 @@ function sidebarReference(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: 'No implemention',
-          link: '/no-implemention'
+          link: 'no-implemention'
         }
       ]
     }

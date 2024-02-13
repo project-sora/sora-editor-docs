@@ -14,7 +14,7 @@ export const ja = defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/project-sora/sora-editor-docs/edit/main/docs/:path',
+      pattern: 'https://github.com/project-sora/sora-editor-docs/blob/main/:path',
       text: 'GitHub でこのページを編集する'
     },
 
@@ -85,7 +85,7 @@ function guideReference(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: 'クイックスタート',
-          link: '/getting-started'
+          link: 'getting-started'
         }
       ]
     }
@@ -98,7 +98,7 @@ function sidebarReference(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: 'No implemention',
-          link: '/no-implemention'
+          link: 'no-implemention'
         }
       ]
     }

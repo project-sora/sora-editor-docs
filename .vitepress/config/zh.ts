@@ -85,11 +85,11 @@ function guideReference(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: '概述',
-          link: '/editor-overview'
+          link: 'editor-overview'
         },
         {
           text: '快速开始',
-          link: '/getting-started'
+          link: 'getting-started'
         }
       ]
     }
@@ -102,7 +102,7 @@ function sidebarReference(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: '未实现',
-          link: '/no-implemention'
+          link: 'no-implemention'
         }
       ]
     }
