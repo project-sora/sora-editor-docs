@@ -239,5 +239,29 @@ Not all fields of `DirectAccessProps` can take effect without invalidation. Call
 
 Methods and fields that marked with `@UnsupportedUserUsage` should not be used. They are visible for internal access.
 :::
+## Release the Widget
+When a `CodeEditor` instance is no longer used, its `release()` method **must** be invoked to release resources and any background thread serving for the editor.
+After releasing the editor, you should not use the editor, to avoid errors.
+
+::: code-group
+
+```Kotlin Kotlin
+override fun onDestroy() {
+    super.onDestroy()
+    editor?.release()
+}
+```
+
+```Java Java
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    if (editor != null) {
+        editor.release();
+    }
+}
+```
+
+:::
 ## Continue
 Go to [Language](./using-language.md) and [Color Scheme](./using-color-scheme.md) to equip the editor with programming language support and your custom color scheme.
