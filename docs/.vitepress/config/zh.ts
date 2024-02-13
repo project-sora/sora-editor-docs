@@ -1,4 +1,4 @@
-import config from '../../package.json'
+import config from '../../../package.json'
 import { defineConfig, type DefaultTheme } from 'vitepress'
 
 export const zh = defineConfig({
