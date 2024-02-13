@@ -1,1 +1,1 @@
-# 配色方案
+# Color Scheme
