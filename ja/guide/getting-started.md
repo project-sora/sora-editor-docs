@@ -2,12 +2,11 @@
 outline: deep
 ---
 # クイックスタート
-
 ## 要件
 [sora-editor](https://github.com/Rosemoe/sora-editor) ライブラリをプロジェクトに組み込む前に、環境とビルド構成が以下の要件を満たしていることを確認してください。
-* JDK 17 以降で Gradle を実行する、
+* JDK 17 以降で Gradle を実行します、
 * モジュールの最小 Android SDK バージョンは Android L (API 21) 以上です、
-   * [言語サーバー プロトコル](https://microsoft.github.io/language-server-protocol/) を使用する場合、Android O (API 26) 以上が必要となります。
+   * [言語サーバー プロトコル](https://microsoft.github.io/language-server-protocol/) を使用する場合、Android O (API 26) 以上が必要となります、
 * プロジェクトの Java ソース互換性とターゲット互換性は `JavaVersion.VERSION_17` です。
 ::: details Java コンパイルとターゲットの互換性の設定
 
@@ -117,6 +116,7 @@ dependencies {
 モジュールの詳細については、以下の表を確認してください。
 
 :::
+
 ## 🛠️付属のモジュール
 
 | モジュール                | 紹介                                                                                                                                                                                                                                                                                          |
@@ -125,8 +125,28 @@ dependencies {
 | editor-lsp          | Language Server Protocol (略して LSP) を使用して言語を作成するための便利なツールのライブラリです。                                                                                                                                                                                                                                                                  |
 | language-java       | Java の強調表示とオートコンプリートを含む言語ライブラリ。                                                                                                                                                                                                                                                                                         |
 | language-textmate   | 高度なハイライト分析ライブラリ。これを使用して、textmate 言語構成ファイルをロードし、このエディターに適用できます。内部実装は [tm4e](https://github.com/eclipse/tm4e) から取得されます。                                                                                                                                                                                     |
-| language-treesitter | エディターに　[tree-sitter](https://tree-sitter.github.io/tree-sitter/)　サポートを提供します。これを使用すると、コードを抽象構文ツリーに迅速かつ段階的に解析することができ、正確な強調表示と補完の提供に役立ちます。このモジュールはトランジションとハイライトのサポートのみを提供することに注意してください。[android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter/)プロジェクトによって提供される Java バインディング ライブラリを感謝します。 |
+| language-treesitter | エディターに　[tree-sitter](https://tree-sitter.github.io/tree-sitter/)　サポートを提供します。これを使用すると、コードを抽象構文ツリーに迅速かつ段階的に解析することができ、正確な強調表示と補完の提供に役立ちます。このモジュールはトランジションとハイライトのサポートのみを提供することに注意してください。[android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter/) プロジェクトによって提供される Java バインディング ライブラリを感謝します。 |
+### 🚧スナップショット ビルド
 
+通常は、[リリース済みバージョン](https://github.com/Rosemoe/sora-editor/releases) を使用することをお勧めします。 ただし、最新のバグ修正や機能強化のためにナイトリー ビルドを使用したい場合もあります。
+
+::: details スナップショット ビルドの使用方法
+
+スナップショット バージョンは、リポジトリ プッシュ時に自動的に公開されます。 現在リリースされているバージョン名と短いコミット ハッシュを組み合わせて、
+スナップショット バージョン名を作成できます。
+
+たとえば、最新リリースのバージョン名が「0.21.1」、
+短いコミット ハッシュが '97c4963' の場合、バージョン名 '0.21.1-97c4963-SNAPSHOT' を使用して、スナップショット バージョンをプロジェクトにインポートできます。
+
+追加の Maven リポジトリを追加する必要があることに注意してください：
+```Kotlin{3}
+repositories {
+    // ...
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots")
+}
+```
+
+:::
 
 ## TextMate の脱糖（Desugar）を構成する
 
@@ -177,10 +197,71 @@ android {
 プロジェクトに `editor` モジュールが含まれていることを確認し、プロジェクトを Gradle ファイルと正常に同期してください。
 
 メインのウィジェット クラスは `io.github.rosemoe.sora.widget.CodeEditor` です。 コード エディターは、XML コードまたは Java/Kotlin コードによって作成できます。
-
-```Xml
+### XML での使用
+レイアウト XML ファイルでエディターを宣言します：
+```XML
 <io.github.rosemoe.sora.widget.CodeEditor
     android:id="@+id/editor"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    app:text="Hello, world!"
+    app:textSize="18sp" />
 ```
+XML宣言で「text」や「textSize」を設定する必要はありません。
+
+XML での使用法の詳細については、[XML 属性](/reference/xml-attributes) を参照してください。
+::: tip NOTE
+エディターの幅または高さに「wrap_content」を使用することはお勧めできません。 その場合、テキストを編集するときに、編集者は再レイアウトを要求する必要があり、おそらくラグが発生します。
+:::
+### Java/Kotlin コードでの使用
+エディターを作成し、任意のビュー グループに追加するだけです。 任意の `Activity` コンテキストにいて、`vg` が `ViewGroup` インスタンスであると仮定します。
+::: code-group
+```Kotlin [Kotlin]
+val editor = CodeEditor(this)
+editor.setText("Hello, world!") // テキストの設定
+editor.typefaceText = Typeface.MONOSPACE // 等幅書体(Monospace)を使用する
+editor.nonPrintablePaintingFlags =
+                CodeEditor.FLAG_DRAW_WHITESPACE_LEADING or CodeEditor.FLAG_DRAW_LINE_SEPARATOR or CodeEditor.FLAG_DRAW_WHITESPACE_IN_SELECTION // 印刷できない文字を表示する
+vg.add(editor, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+```
+```Java [Java]
+var editor = new CodeEditor(this);
+editor.setText("Hello, world!"); // テキストの設定
+editor.setTypefaceText(Typeface.MONOSPACE); // 等幅書体(Monospace)を使用する
+editor.setNonPrintablePaintingFlags(
+                CodeEditor.FLAG_DRAW_WHITESPACE_LEADING | CodeEditor.FLAG_DRAW_LINE_SEPARATOR | CodeEditor.FLAG_DRAW_WHITESPACE_IN_SELECTION); // 印刷できない文字を表示する
+vg.add(editor, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+```
+:::
+構成できるその他の属性については、`CodeEditor` のメソッドと `DirectAccessProps` のフィールドを参照してください。
+::: warning ご注意！
+`DirectAccessProps` のすべてのフィールドが無効化されないと有効になるわけではありません。 `@InvalidateRequired` でマークされたフィールドを変更した後、エディターで `invalidate()` を呼び出します。
+
+`@UnsupportedUserUsage` でマークされたメソッドとフィールドは使用しないでください。 これらは内部アクセスに対して表示されます。
+:::
+## ウィジェットの解放
+`CodeEditor` インスタンスが使用されなくなった場合、その `release()` メソッドを呼び出して、リソースとエディターに提供されているバックグラウンド スレッドを**解放する必要があります**。
+エラーを避けるために、エディタをリリースした後はエディタを使用しないでください。
+
+::: code-group
+
+```Kotlin Kotlin
+override fun onDestroy() {
+    super.onDestroy()
+    editor?.release()
+}
+```
+
+```Java Java
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    if (editor != null) {
+        editor.release();
+    }
+}
+```
+
+:::
+## 続くはどうしますか？...
+[言語](./using-language.md) および [カラー スキーム](./using-color-scheme.md) に移動して、エディターにプログラミング言語サポートとカスタム カラー スキームを装備します。
