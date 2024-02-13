@@ -83,14 +83,10 @@ function guideReference(): DefaultTheme.SidebarItem[] {
       text: '简介与入门',
       collapsed: false,
       items: [
-        {
-          text: '概述',
-          link: 'editor-overview'
-        },
-        {
-          text: '快速开始',
-          link: 'getting-started'
-        }
+        { text: '概述', link: 'editor-overview' },
+        { text: '快速开始', link: 'getting-started' },
+        { text: '语言', link: 'using-language' },
+        { text: '配色方案', link: 'using-color-scheme' }
       ]
     }
   ]
@@ -100,10 +96,7 @@ function sidebarReference(): DefaultTheme.SidebarItem[] {
   return [
     {
       items: [
-        {
-          text: '未实现',
-          link: 'no-implemention'
-        }
+        { text: '未实现', link: 'no-implemention' }
       ]
     }
   ]
