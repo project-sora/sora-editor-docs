@@ -84,6 +84,10 @@ function guideReference(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         {
+          text: '概要',
+          link: 'editor-overview'
+        },
+        {
           text: 'クイックスタート',
           link: 'getting-started'
         }
