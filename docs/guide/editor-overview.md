@@ -2,7 +2,7 @@
 outline: deep
 ---
 # Overview
-SoraEditor is an Android View library for editting code, with instant syntax-highlight and real-time auto-completion support.
+Sora Editor is an Android View library for editting code, with instant syntax-highlight and real-time auto-completion support.
 
 The editor is desgined to be effective, smoooth and pluggable, and you can easily start a code editting app by integrating our library into your project.
 
@@ -15,7 +15,7 @@ Just want to try it out? Go to [Getting Started](./getting-started.md).
 
 ## Highlights of Our Editor
 ### **Full-Featured**
-SoraEditor has implemented most features of modern IDEs. We provide not only fundamental stuff, but also forefront functionaliy.
+Sora Editor has implemented most features of modern IDEs. We provide not only fundamental stuff, but also forefront functionaliy.
 
 Features implemented up to now:
   - Incremental Syntax-highlight
