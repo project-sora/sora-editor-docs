@@ -14,7 +14,7 @@ export const ja = defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/project-sora/sora-editor-docs/blob/main/:path',
+      pattern: 'https://github.com/project-sora/sora-editor-docs/blob/main/docs/ja/:path',
       text: 'GitHub でこのページを編集する'
     },
 

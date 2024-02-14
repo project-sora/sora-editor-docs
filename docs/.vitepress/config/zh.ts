@@ -14,7 +14,7 @@ export const zh = defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/project-sora/sora-editor-docs/blob/main/:path',
+      pattern: 'https://github.com/project-sora/sora-editor-docs/blob/main/docs/zh/:path',
       text: '在 GitHub 上编辑此页面'
     },
 
