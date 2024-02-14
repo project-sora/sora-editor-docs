@@ -60,9 +60,9 @@ Your `language.json`:
 ```
 `name` is custom and `scopeName` is the root scope of the syntax file.
 
-For language that can have injection languages, refer to HTML sample in [Demo App](https://github.com/Rosemoe/sora-editor/blob/main/app/src/main/assets/textmate/languages.json)
+For language (like HTML and Markdown) with embedded languages, refer to HTML sample in [Demo App](https://github.com/Rosemoe/sora-editor/blob/main/app/src/main/assets/textmate/languages.json)
 #### Load Syntaxes and Themes
-Before starting use TextMate in editor, we should prepare data for TextMate first. **These steps are performed only once, no matter how many editor is to use TextMate.** 
+Before using TextMate languages in editor, we should load the syntax and theme files into registry. **These steps are performed only once, no matter how many editors are to use TextMate.** 
 
 Supposing we are to load textmate files from our APK assets. First, we need to add `FileResolver` for TextMate internal file access.
 ::: code-group
@@ -198,3 +198,29 @@ editor.setEditorLanguage(new JavaLanguage());
 
 :::
 ### language-treesitter
+TreeSitter is developed by the creators of [Atom](https://github.com/atom/atom) and now [Zed](https://github.com/zed-industries/zed) and used in the two code editors. TreeSitter is a parser generator tool and an incremental parsing library.
+
+With TreeSitter, we can build a concrete syntax tree for a source file and efficiently update the syntax tree as the source file is edited. And use the syntax tree for accurate syntax-highlight.
+
+We use Java binding [android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter) to invoke tree-sitter APIs.
+
+Before reading ahead, we strongly recommended you to check out [TextStyle](https://github.com/Rosemoe/sora-editor/blob/main/editor/src/main/java/io/github/rosemoe/sora/lang/styling/TextStyle.java) in editor framework first.
+
+#### Prepare Language
+You can find existing language implementation from [android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter). If the language you want is m,issing, you have to build the language for Android on your own.
+
+Besides, Four `scm` files for querying the syntax tree are required.
+* 1. For highlight
+`highlights.scm` for most languages can be found in TreeSitter language repositories. For exmaple, the one for Java is [here](https://github.com/tree-sitter/tree-sitter-java/tree/master/queries)
+* 2. For code blocks (optional)
+This is sora-editor specific queries. Refer to  [here](https://github.com/Rosemoe/sora-editor/blob/main/app/src/main/assets/tree-sitter-queries/java/blocks.scm) for instructions and sample.
+* 3. For brackets (optional)
+This is sora-editor specific queries. Refer to [here](https://github.com/Rosemoe/sora-editor/blob/main/app/src/main/assets/tree-sitter-queries/java/brackets.scm) for instructions and sample.
+* 4. For local variables (optional)
+`locals.scm` for most languages can be found in [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter/tree/master/queries) repository.
+
+Useful Links:
+* [TreeSitter Organization](https://github.com/tree-sitter)
+* [TreeSitter Documentation](https://tree-sitter.github.io/tree-sitter/)
+* [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+* [Zed Languages](https://github.com/zed-industries/zed/tree/main/crates/zed/src/languages)
