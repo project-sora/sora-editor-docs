@@ -1,5 +1,5 @@
 import config from '../../../package.json'
-import { defineConfig, type DefaultTheme } from 'vitepress'
+import {type DefaultTheme, defineConfig} from 'vitepress'
 
 export const ja = defineConfig({
   lang: 'ja',
@@ -53,7 +53,7 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: 'ガイド',
-      link: '/ja/guide/getting-started',
+      link: '/ja/guide/editor-overview',
       activeMatch: '/ja/guide/'
     },
     {
