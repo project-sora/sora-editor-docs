@@ -1,5 +1,5 @@
 import config from '../../../package.json'
-import { defineConfig, type DefaultTheme } from 'vitepress'
+import {type DefaultTheme, defineConfig} from 'vitepress'
 
 export const zh = defineConfig({
   lang: 'zh-Hans',
@@ -53,7 +53,7 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: '指南',
-      link: '/zh/guide/getting-started',
+      link: '/zh/guide/editor-overview',
       activeMatch: '/zh/guide/'
     },
     {
