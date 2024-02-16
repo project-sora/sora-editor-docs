@@ -149,7 +149,7 @@ repositories {
 
 ## 为TextMate配置脱糖
 
-如果您的项目使用了`language-textmate`模块，并且想要在Android N（API 24）以下的设备上运行您的应用，您**必须**启用[脱糖](https://developer.android.google.cn/studio/write/java8-support#library-desugaring)以避免兼容性问题。如果您已进行此操作，请看下一部分。
+如果您的项目使用了`language-textmate`模块，并且想要在Android 13（API 33）以下的设备上运行您的应用，您**必须**启用[脱糖](https://developer.android.google.cn/studio/write/java8-support#library-desugaring)以避免兼容性问题。如果您已进行此操作，请看下一部分。
 
 如果要启用脱糖，请按照以下说明配置您的**应用模块**。
 
