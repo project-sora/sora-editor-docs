@@ -35,7 +35,7 @@ TextMate では複数の言語を読み込むことができます。 後でロ�
 |  |  └─ language-configuration.json
 |  └─ kotlin
 |     ├─ syntaxes
-|     |  └─ jKotlin.tmLanguage
+|     |  └─ Kotlin.tmLanguage
 |     └─ language-configuration.json
 └─ language.json
 ```
@@ -94,7 +94,7 @@ val themeAssetsPath = "textmate/$name.json"
 themeRegistry.loadTheme(
     ThemeModel(
         IThemeSource.fromInputStream(
-            FileProviderRegistry.getInstance().tryGetInputStream(path), path, null
+            FileProviderRegistry.getInstance().tryGetInputStream(themeAssetsPath), themeAssetsPath, null
         ), 
         name
     ).apply {
@@ -110,7 +110,7 @@ var name = "quietlight"; // テーマの名前
 var themeAssetsPath = "textmate/" + name + ".json";
 var model = new ThemeModel(
         IThemeSource.fromInputStream(
-            FileProviderRegistry.getInstance().tryGetInputStream(path), path, null
+            FileProviderRegistry.getInstance().tryGetInputStream(themeAssetsPath), themeAssetsPath, null
         ), 
         name
     );

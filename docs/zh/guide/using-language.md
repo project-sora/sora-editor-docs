@@ -55,7 +55,7 @@ textmate可以加载多种语言，所以我们需要提前准备一下`language
 |  |  └─ language-configuration.json
 |  └─ kotlin
 |     ├─ syntaxes
-|     |  └─ jKotlin.tmLanguage
+|     |  └─ Kotlin.tmLanguage
 |     └─ language-configuration.json
 └─ language.json
 ```
@@ -123,7 +123,7 @@ val themeAssetsPath = "textmate/$name.json"
 themeRegistry.loadTheme(
     ThemeModel(
         IThemeSource.fromInputStream(
-            FileProviderRegistry.getInstance().tryGetInputStream(path), path, null
+            FileProviderRegistry.getInstance().tryGetInputStream(themeAssetsPath), themeAssetsPath, null
         ),
         name
     ).apply {
@@ -139,7 +139,7 @@ var name = "quietlight"; // 主题名称
 var themeAssetsPath = "textmate/" + name + ".json";
 var model = new ThemeModel(
         IThemeSource.fromInputStream(
-                FileProviderRegistry.getInstance().tryGetInputStream(path), path, null
+                FileProviderRegistry.getInstance().tryGetInputStream(themeAssetsPath), themeAssetsPath, null
         ),
         name
 );

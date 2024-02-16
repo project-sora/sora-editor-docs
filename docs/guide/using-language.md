@@ -35,7 +35,7 @@ Multiple languages can be loaded by TextMate. We should prepare `languages.json`
 |  |  └─ language-configuration.json
 |  └─ kotlin
 |     ├─ syntaxes
-|     |  └─ jKotlin.tmLanguage
+|     |  └─ Kotlin.tmLanguage
 |     └─ language-configuration.json
 └─ language.json
 ```
