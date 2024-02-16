@@ -3,7 +3,7 @@ outline: deep
 ---
 # Getting Started
 ## Requirements
-Before including [sora-editor](https://github.com/Rosemoe/sora-editor) library into your project, please ensure your environment and build configuration satify the requirements below:
+Before including [sora-editor](https://github.com/Rosemoe/sora-editor) library into your project, please ensure your environment and build configuration satisfy the requirements below:
 * Running Gradle on JDK 17 or above
 * The minimum Android SDK version of your module is at least Android L (API 21)
   * If you are to use [Language Server Protocol](https://microsoft.github.io/language-server-protocol/), the requirement will be at least Android O (API 26)
