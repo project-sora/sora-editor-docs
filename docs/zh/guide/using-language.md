@@ -112,7 +112,7 @@ FileProviderRegistry.getInstance().addFileProvider(
 
 :::
 
-这时候主题应该是已经加载完毕了。下面的代码演示如何将单个主题加载到编辑器中。
+然后，我们需要加载主题。下面的代码演示如何将单个主题加载到编辑器中。
 
 ::: code-group
 
@@ -194,7 +194,7 @@ editor.setColorScheme(TextMateColorScheme.create(ThemeRegistry.getInstance()));
 
 :::
 
-设置编辑器语言。
+最后，设置编辑器语言。
 
 ::: code-group
 
@@ -240,10 +240,10 @@ editor.setEditorLanguage(new JavaLanguage());
 
 ### language-treesitter
 
-TreeSitter创建者是[Atom](https://github.com/atom/atom)，现今由[Zed](https://github.com/zed-industries/zed)继续维护。
+TreeSitter由[Atom](https://github.com/atom/atom)和现在[Zed](https://github.com/zed-industries/zed)的作者们开发。
 TreeSitter是一个解析器生成器工具和一个增量解析库。
 
-使用TreeSitter，我们可以为源文件构建一个具体的语法树，并在编辑源文件时高效地更新语法树并使用语法树进行准确的语法高亮显示。
+使用TreeSitter，我们可以为源文件构建抽象语法树，并在编辑源文件时高效地更新该语法树并使用语法树进行准确的语法高亮显示。
 
 我们使用[android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter)调用tree-sitter的API。
 
@@ -260,7 +260,7 @@ TreeSitter是一个解析器生成器工具和一个增量解析库。
     1. 高亮显示
 
 对于适用于绝大多数语言的`highlights.scm`都可以在TreeSitter语言存储库中找到。
-例如适用于Java的一个就在[这里](https://github.com/tree-sitter/tree-sitter-java/tree/master/queries)
+例如[这个](https://github.com/tree-sitter/tree-sitter-java/tree/master/queries)适用于Java语言。
 
 *
     2. 代码块（可选）
