@@ -207,7 +207,10 @@ We use Java binding [android-tree-sitter](https://github.com/AndroidIDEOfficial/
 Before reading ahead, we strongly recommended you to check out [TextStyle](https://github.com/Rosemoe/sora-editor/blob/main/editor/src/main/java/io/github/rosemoe/sora/lang/styling/TextStyle.java) in editor framework first.
 
 #### Prepare Language
-You can find existing language implementation from [android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter). If the language you want is m,issing, you have to build the language for Android on your own.
+
+You can find existing language implementation
+from [android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter). If the language you want is
+missing, you have to build the language for Android on your own.
 
 Besides, Four `scm` files for querying the syntax tree are required.
 * 1. For highlight
