@@ -35,7 +35,7 @@ function nav(): DefaultTheme.NavItem[] {
     },
     {
       text: 'Reference',
-      link: '/reference/no-implemention',
+      link: '/reference/xml-attributes',
       activeMatch: '/reference/'
     },
     {
@@ -75,8 +75,8 @@ function sidebarReference(): DefaultTheme.SidebarItem[] {
     {
       items: [
         {
-          text: 'No implemention',
-          link: 'no-implemention'
+          text: 'XML Attributes',
+          link: 'xml-attributes'
         }
       ]
     }
