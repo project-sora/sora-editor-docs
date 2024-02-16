@@ -94,7 +94,7 @@ val themeAssetsPath = "textmate/$name.json"
 themeRegistry.loadTheme(
     ThemeModel(
         IThemeSource.fromInputStream(
-            FileProviderRegistry.getInstance().tryGetInputStream(path), path, null
+            FileProviderRegistry.getInstance().tryGetInputStream(themeAssetsPath), themeAssetsPath, null
         ), 
         name
     ).apply {
@@ -110,7 +110,7 @@ var name = "quietlight"; // name of theme
 var themeAssetsPath = "textmate/" + name + ".json";
 var model = new ThemeModel(
         IThemeSource.fromInputStream(
-            FileProviderRegistry.getInstance().tryGetInputStream(path), path, null
+            FileProviderRegistry.getInstance().tryGetInputStream(themeAssetsPath), themeAssetsPath, null
         ), 
         name
     );
