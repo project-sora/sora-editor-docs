@@ -74,10 +74,8 @@ function sidebarReference(): DefaultTheme.SidebarItem[] {
   return [
     {
       items: [
-        {
-          text: 'XML Attributes',
-          link: 'xml-attributes'
-        }
+        { text: 'XML Attributes', link: 'xml-attributes' },
+        { text: 'Keybindings', link: 'keybindings' }
       ]
     }
   ]
