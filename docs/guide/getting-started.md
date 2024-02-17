@@ -150,7 +150,7 @@ repositories {
 
 ## Configure Desugaring for TextMate
 
-If you use `language-textmate` module in your project, and want to run the application on devices under Android N (API 24), you **must** enable [Core Library Desugaring](https://developer.android.google.cn/studio/write/java8-support#library-desugaring) to avoid compatibility issues. Otherwise, you can go on to next section.
+If you use `language-textmate` module in your project, and want to run the application on devices under Android 13 (API 33), you **must** enable [Core Library Desugaring](https://developer.android.google.cn/studio/write/java8-support#library-desugaring) to avoid compatibility issues. Otherwise, you can go on to next section.
 
 To enable the desugaring, follow the instructions below to setup your **application module**.
 
