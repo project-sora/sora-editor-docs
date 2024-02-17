@@ -236,7 +236,7 @@ With TreeSitter, we can build a concrete syntax tree for a source file and effic
 
 We use Java binding [android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter) to invoke tree-sitter APIs.
 
-Before reading ahead, we strongly recommended you to check out [TextStyle](https://github.com/Rosemoe/sora-editor/blob/main/editor/src/main/java/io/github/rosemoe/sora/lang/styling/TextStyle.java) in editor framework first.
+Before reading ahead, we strongly recommend you to check out [TextStyle](https://github.com/Rosemoe/sora-editor/blob/main/editor/src/main/java/io/github/rosemoe/sora/lang/styling/TextStyle.java) in editor framework first.
 
 #### Prepare Language
 
@@ -259,4 +259,48 @@ Useful Links:
 * [TreeSitter Documentation](https://tree-sitter.github.io/tree-sitter/)
 * [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 * [Zed Languages](https://github.com/zed-industries/zed/tree/main/crates/zed/src/languages)
-#### 
+#### Create Language Spec
+First, `TsLanguageSpec` should be created with tree-sitter language instance and `scm` source texts. You may also need to add a custom [`LocalsCaptureSpec`](https://github.com/Rosemoe/sora-editor/blob/main/language-treesitter/src/main/java/io/github/rosemoe/sora/editor/ts/LocalsCaptureSpec.kt) for your `locals.scm`.
+
+```Kotlin
+val spec = TsLanguageSpec(
+    // Your tree-sitter language instance
+    language = TSLanguageJava.getInstance(),
+    // scm source texts
+    highlightScmSource = assets.open("tree-sitter-queries/java/highlights.scm")
+        .reader().readText(),
+    codeBlocksScmSource = assets.open("tree-sitter-queries/java/blocks.scm")
+        .reader().readText(),
+    bracketsScmSource = assets.open("tree-sitter-queries/java/brackets.scm")
+        .reader().readText(),
+    localsScmSource = assets.open("tree-sitter-queries/java/locals.scm")
+        .reader().readText(),
+    localsCaptureSpec = object : LocalsCaptureSpec() {
+        // Override any method to change the specification
+    }
+)
+```
+Sometimes, your `scm` file uses external predicate methods (client predicates) to better querying the syntax tree. In this case, add your predicate implementations to the `predicates` argument.
+#### Make Language and Theme
+Create a [TsLanguage] with your [TsLanguageSpec] and theme builder DSL.
+```Kotlin
+// Extension Function for easily make text styles in Kotlin
+import io.github.rosemoe.sora.lang.styling.textStyle
+
+// ...
+val language = TsLanguage(languageSpec, false /* useTab */) {
+    // Theme Builder DSL
+    // Apply text style to captured syntax nodes
+
+    // Apply style to single type of node
+    textStyle(KEYWORD, bold = true) applyTo "keyword"
+    // Apply to multiple
+    textStyle(LITERAL) applyTo arrayOf("constant.builtin", "string", "number")
+}
+```
+#### Apply Language
+Now the language instance can be applied to the editor.
+```Kotlin
+editor.setEditorLanguage(language)
+```
+Note that, the `TsLanguageSpec` object can not be reused, because it is closed when the `TsLanguage` is destroyed.
