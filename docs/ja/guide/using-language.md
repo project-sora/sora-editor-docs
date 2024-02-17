@@ -198,3 +198,32 @@ editor.setEditorLanguage(new JavaLanguage());
 
 :::
 ### language-treesitter
+TreeSitter は、[Atom](https://github.com/atom/atom) と現在は [Zed](https://github.com/zed-industries/zed) の作成者によって開発され、2 つのコード エディターで使用されています。 。 TreeSitter は、パーサー生成ツールおよび増分解析ライブラリです。
+
+TreeSitter を使用すると、ソース ファイルの具体的な構文ツリーを構築し、ソース ファイルの編集に応じて構文ツリーを効率的に更新できます。 また、正確な構文の強調表示には構文ツリーを使用します。
+
+Java バインディング [android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter) を使用して、tree-sitter API を呼び出します。
+
+読み進める前に、まずエディター フレームワークの [TextStyle](https://github.com/Rosemoe/sora-editor/blob/main/editor/src/main/java/io/github/rosemoe/sora/lang/styling/TextStyle.java) をチェックアウトすることを強くお勧めします。
+
+#### 言語を準備する
+
+既存の言語実装を見つけることができます
+[android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter) より。 希望する言語が
+欠けている場合は、Android 用の言語を自分で構築する必要があります。
+
+さらに、構文ツリーをクエリするための 4 つの `scm` ファイルが必要です。
+* 1.ハイライト用
+ほとんどの言語の「highlights.scm」は、TreeSitter 言語リポジトリにあります。 たとえば、Java 用のものは [こちら](https://github.com/tree-sitter/tree-sitter-java/tree/master/queries) です。
+* 2. コードブロック用（オプション）
+これは sora エディター固有のクエリです。 手順とサンプルについては、[こちら](https://github.com/Rosemoe/sora-editor/blob/main/app/src/main/assets/tree-sitter-queries/java/blocks.scm)を参照してください。
+* 3.ブラケット用（オプション）
+これは sora エディター固有のクエリです。 手順とサンプルについては、[こちら](https://github.com/Rosemoe/sora-editor/blob/main/app/src/main/assets/tree-sitter-queries/java/brackets.scm)を参照してください。
+* 4. ローカル変数の場合（オプション）
+ほとんどの言語の「locals.scm」は、[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter/tree/master/queries) リポジトリにあります。
+
+役立つリンク:
+* [TreeSitter](https://github.com/tree-sitter)
+* [TreeSitter ドキュメント](https://tree-sitter.github.io/tree-sitter/)
+* [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+* [Zed 言語](https://github.com/zed-industries/zed/tree/main/crates/zed/src/languages)
