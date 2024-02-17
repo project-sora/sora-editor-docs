@@ -146,6 +146,38 @@ GrammarRegistry.getInstance().loadGrammars("textmate/languages.json");
 
 :::
 
+::: details Load by Kotlin DSL
+
+You can load languages into grammar registry without `languages.json`, by Kotlin DSL.
+
+For example:
+
+```Kotlin
+GrammarRegistry.getInstance().loadGrammars(
+    languages {
+        language("java") {
+            grammar = "textmate/java/syntaxes/java.tmLanguage.json"
+            defaultScopeName()
+            languageConfiguration = "textmate/java/language-configuration.json"
+        }
+        language("kotlin") {
+            grammar = "textmate/kotlin/syntaxes/Kotlin.tmLanguage"
+            defaultScopeName()
+            languageConfiguration = "textmate/kotlin/language-configuration.json"
+        }
+        language("python") {
+            grammar = "textmate/python/syntaxes/python.tmLanguage.json"
+            defaultScopeName()
+            languageConfiguration = "textmate/python/language-configuration.json"
+        }
+    }
+)
+```
+
+`defaultScopeName()` sets `scopeName` to `source.${languageName}`.
+
+:::
+
 #### Setup Editor
 Set color scheme for the editor. If `TextMateColorScheme` is not applied to the editor, the colors of syntax-highlight result from TextMate will be transparent.
 ::: code-group
@@ -227,3 +259,4 @@ Useful Links:
 * [TreeSitter Documentation](https://tree-sitter.github.io/tree-sitter/)
 * [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 * [Zed Languages](https://github.com/zed-industries/zed/tree/main/crates/zed/src/languages)
+#### 
