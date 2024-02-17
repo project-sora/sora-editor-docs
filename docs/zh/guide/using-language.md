@@ -49,14 +49,14 @@ textmate可以加载多种语言，所以我们需要提前准备一下`language
 ```Text
 .
 ├─ textmate
-|  ├─ java
-|  |  ├─ syntaxes
-|  |  |  └─ java.tmLanguage.json
-|  |  └─ language-configuration.json
-|  └─ kotlin
-|     ├─ syntaxes
-|     |  └─ Kotlin.tmLanguage
-|     └─ language-configuration.json
+│  ├─ java
+│  │  ├─ syntaxes
+│  │  │  └─ java.tmLanguage.json
+│  │  └─ language-configuration.json
+│  └─ kotlin
+│     ├─ syntaxes
+│     │  └─ Kotlin.tmLanguage
+│     └─ language-configuration.json
 └─ language.json
 ```
 

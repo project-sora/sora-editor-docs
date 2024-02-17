@@ -29,14 +29,14 @@ TextMate では複数の言語を読み込むことができます。 後でロ�
 ```Text
 .
 ├─ textmate
-|  ├─ java
-|  |  ├─ syntaxes
-|  |  |  └─ java.tmLanguage.json
-|  |  └─ language-configuration.json
-|  └─ kotlin
-|     ├─ syntaxes
-|     |  └─ Kotlin.tmLanguage
-|     └─ language-configuration.json
+│  ├─ java
+│  │  ├─ syntaxes
+│  │  │  └─ java.tmLanguage.json
+│  │  └─ language-configuration.json
+│  └─ kotlin
+│     ├─ syntaxes
+│     │  └─ Kotlin.tmLanguage
+│     └─ language-configuration.json
 └─ language.json
 ```
 `language.json` はつぎのとおりです:

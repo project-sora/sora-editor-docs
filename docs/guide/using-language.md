@@ -29,14 +29,14 @@ Multiple languages can be loaded by TextMate. We should prepare `languages.json`
 ```Text
 .
 ├─ textmate
-|  ├─ java
-|  |  ├─ syntaxes
-|  |  |  └─ java.tmLanguage.json
-|  |  └─ language-configuration.json
-|  └─ kotlin
-|     ├─ syntaxes
-|     |  └─ Kotlin.tmLanguage
-|     └─ language-configuration.json
+│  ├─ java
+│  │  ├─ syntaxes
+│  │  │  └─ java.tmLanguage.json
+│  │  └─ language-configuration.json
+│  └─ kotlin
+│     ├─ syntaxes
+│     │  └─ Kotlin.tmLanguage
+│     └─ language-configuration.json
 └─ language.json
 ```
 Your `language.json`:
