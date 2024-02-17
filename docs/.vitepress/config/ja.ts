@@ -90,7 +90,10 @@ function guideReference(): DefaultTheme.SidebarItem[] {
         {
           text: 'クイックスタート',
           link: 'getting-started'
-        }
+        },
+        { text: '言語', link: 'using-language'},
+        { text: 'カラースキーム', link: 'using-color-scheme' },
+        { text: 'イベントとコンポーネント', link: 'events-and-components' }
       ]
     }
   ]
@@ -101,8 +104,8 @@ function sidebarReference(): DefaultTheme.SidebarItem[] {
     {
       items: [
         {
-          text: 'No implemention',
-          link: 'no-implemention'
+          text: 'XML 属性',
+          link: 'xml-attributes'
         }
       ]
     }
