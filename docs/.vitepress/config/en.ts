@@ -66,6 +66,31 @@ function guideReference(): DefaultTheme.SidebarItem[] {
         { text: 'Color Scheme', link: 'using-color-scheme' },
         { text: 'Events and Components', link: 'events-and-components' }
       ]
+    },
+    {
+      text: 'Advanced',
+      collapsed: false,
+      items: [
+        { text: 'Language Server Protocol', link: 'using-lsp' },
+        { text: 'Custom Component', link: 'custom-component' },
+        { 
+          text: 'Custom Language',
+          collapsed: true,
+          items: [
+            { text: 'Language Basics', link: 'custom-language/basics' },
+            { text: 'Syntax Analysis', link: 'custom-language/syntax-analysis' },
+            { text: 'Auto Completion', link: 'custom-language/auto-completion' },
+            { text: 'Diagnostics', link: 'custom-language/diagnostics' },
+            { text: 'Code Format', link: 'custom-language/code-format' },
+            // { text: 'Inlay Hint', link: 'custom-language/inlay-hint' },
+            { text: 'Minor Features', link: 'custom-language/minor-features' }
+          ]
+        }
+      ]
+    },
+    {
+      text: 'API Reference',
+      link: '../reference/xml-attributes'
     }
   ]
 }
@@ -73,6 +98,7 @@ function guideReference(): DefaultTheme.SidebarItem[] {
 function sidebarReference(): DefaultTheme.SidebarItem[] {
   return [
     {
+      text: 'Reference',
       items: [
         { text: 'XML Attributes', link: 'xml-attributes' },
         { text: 'Keybindings', link: 'keybindings' }
