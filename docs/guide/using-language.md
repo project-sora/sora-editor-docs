@@ -282,7 +282,7 @@ val spec = TsLanguageSpec(
 ```
 Sometimes, your `scm` file uses external predicate methods (client predicates) to better querying the syntax tree. In this case, add your predicate implementations to the `predicates` argument.
 #### Make Language and Theme
-Create a [TsLanguage] with your [TsLanguageSpec] and theme builder DSL.
+Create a `TsLanguage` with your `TsLanguageSpec` and theme builder DSL.
 ```Kotlin
 // Extension Function for easily make text styles in Kotlin
 import io.github.rosemoe.sora.lang.styling.textStyle
