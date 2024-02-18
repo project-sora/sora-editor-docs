@@ -52,8 +52,29 @@ editor.subscribeEvent(ClickEvent.class, (event, unsubscribe) -> {
     // Handle the event
 });
 ```
-
 :::
+
+If you are not to unsubscribe in event handling logic:
+::: code-group
+
+```Kotlin Kotlin
+editor.subscribeAlways<ClickEvent> { event ->
+    // Handle the event
+}
+
+// Alternatively
+editor.subscribeAlways<ClickEvent> {
+    // Handle the event
+}
+```
+
+```Java Java
+editor.subscribeAlways(ClickEvent.class, (event) -> {
+    // Handle the event
+});
+```
+:::
+
 ::: tip NOTE
 Currently, you are unable to subscribe abstract/super events to handle several types of event with common super class.
 :::
