@@ -106,8 +106,59 @@ receipt.unsubscribe();
 The receipt is used to unsubscribe the event outside the callback. If you are handling the event, please use the `Unsubscribe` object given.
 :::
 ## Components
-### Auto Completion
-### Text Action Window
-### Magnifier
-### Diagnostic Tooltip
-### Context Menu
+Componets are a part of editor. Most components rely on the event system but editor itself does not control the components directly. They can be disabled or replaced.
+### Component Actions
+You can get a component by `CodeEditor#getComponent` with its class.
+::: code-group
+
+```Kotlin Kotlin
+val component = editor.getComponent<EditorAutoCompletion>()
+```
+
+```Java Java
+var component = editor.getComponent(EditorAutoCompletion.class);
+```
+
+:::
+Components can be disabled.
+::: code-group
+
+```Kotlin Kotlin
+component.enabled = false
+```
+
+```Java Java
+component.setEnabled(false);
+```
+
+:::
+### Components Introduction
+#### Auto Completion
+`EditorAutoCompletion` manages auto-completion analysis and the completion windows. 
+
+It checks if it is suitable to show the completion on editor events, and dispatches background completion task to the `Language`.
+
+<div align="center"><img src="../img/auto-completion-preview.jpg" alt="Auto-Completion Preview" width="25%"/></div>
+
+#### Text Action Window
+`EditorTextActionWindow` manages the small panel for text actions, including paste, copy, cut, select-all and long-select.
+
+The panel is shown when text is selected or the user clicks on the insert selection.
+
+<div align="center"><img src="../img/text-action-window-preview.jpg" alt="Text Actions Preview" width="25%"/></div>
+
+#### Magnifier
+`Magnifier` is controlled by `EditorTouchEventHandler`. Text magnifier is shown when any selection handle is held.
+
+<div align="center"><img src="../img/magnifier-preview.jpg" alt="TMagnifier Preview" width="25%"/></div>
+
+#### Diagnostic Tooltip
+`EditorDiagnosticsTooltipWindow` is shown when insert selection enters a region of diagnostics item. It requires `DiagnosticDetail` from your language implementation for detailed information of the diagnostic item.
+
+The tooltip window also allows the user to perform quickfixes on the text. (experimental)
+
+
+<div align="center"><img src="../img/diagnostic-tooltip-preview.jpg" alt="Text Actions Preview" width="25%"/></div>
+
+#### Context Menu
+`EditorContextMenuCreator` helps the editor to create context menu when mouse right-clicks in editor.
