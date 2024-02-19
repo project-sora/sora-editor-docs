@@ -17,7 +17,7 @@ data class CodeEditorState(
     val editor: CodeEditor? = null,
     val initialContent: Content = Content()
 ) {
-    var content by mutableStateOf(content)
+    var content by mutableStateOf(initialContent)
 }
 ```
 
