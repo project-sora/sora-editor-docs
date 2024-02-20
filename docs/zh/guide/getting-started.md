@@ -191,6 +191,16 @@ android {
 
 :::
 
+::: warning 注意
+当您启用脱糖时，您应该通过如下两种方式构建用于发布的应用：
+* 菜单  `Build` | `Build Bundle(s) / APK(s)` | `Build APK(s)` 进行构建
+* 或者，运行Gradle任务 `assemble<Variant>`。 例如，运行 `assembleDebug` 任务来生成`debug`变体的 APK
+
+当您从运行按钮（或快捷键 `Shift+F10`）在特定设备上运行应用时，Android Studio 尝试加速解糖过程。它将生成目标设备 API 特定的 APK 文件，此安装包可能不能在其他设备上正常工作。
+
+或者，您可以禁用 Android Studio 的这项功能来解决此问题。此项设置位于 `Experimental > Optimize build for target device API level only` 。
+:::
+
 ## 创建组件
 
 请确保您的项目中已经包含核心模块`editor`，并且您项目的Gradle相关文件已经成功同步。

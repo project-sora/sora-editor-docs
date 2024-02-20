@@ -193,11 +193,13 @@ android {
 :::
 
 ::: warning BE CAUTIOUS
-When desugaring is enabled, you should build the APK in Android Studio by:
+When desugaring is enabled, you should build the production APK in Android Studio by:
 * Build from menu `Build` | `Build Bundle(s) / APK(s)` | `Build APK(s)`
 * Or, run Gradle task `assemble<Variant>`. For example, execute `assembleDebug` for your `debug` variant.
 
-Android Studio internally tries to speed up the desugaring process when you run the application by clicking the `Run` button (or `Shift+F10`). It will generate a device specific APK, and the result APK may not work properly on other devices.
+Android Studio tries to speed up the desugaring process when you run the application on a specific device from clicking the `Run` button (or shortcuts `Shift+F10`). It will generate a device API specific APK, and as a result the APK may not work properly on other devices.
+
+Alternatively, you can disable this feature in Android Studio by disabling `Experimental > Optimize build for target device API level only` in preferences to avoid this issue.
 :::
 
 ## Create the Widget
