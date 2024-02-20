@@ -89,6 +89,13 @@ function guideReference(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
+      text: 'Jetpack Compose',
+      collapsed: false,
+      items: [
+        { text: 'CodeEditor in Compose', link: 'code-editor-in-compose'}
+      ]
+    },
+    {
       text: 'API Reference',
       link: '../reference/xml-attributes'
     }
