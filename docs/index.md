@@ -7,7 +7,7 @@ titleTemplate: High-Performance Android Code Editor
 hero:
   name: Sora Editor
   text: High-Performance Android Code Editor
-  tagline: Powerful, optimized and pluggable. Here's what you need for your code viewing and editting apps.
+  tagline: Powerful, optimized and pluggable. Here's what you need for your code viewing and editing apps.
   actions:
     - theme: brand
       text: Get Started
