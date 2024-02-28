@@ -96,7 +96,8 @@ function sidebarReference(): DefaultTheme.SidebarItem[] {
   return [
     {
       items: [
-        { text: 'XML属性', link: 'xml-attributes' }
+        { text: 'XML属性', link: 'xml-attributes' },
+        { text: '快捷键', link: 'keybindings' }
       ]
     }
   ]
