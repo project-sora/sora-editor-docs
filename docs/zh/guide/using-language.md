@@ -178,6 +178,38 @@ GrammarRegistry.getInstance().loadGrammars("textmate/languages.json");
 
 :::
 
+::: details 通过Kotlin DSL语法加载
+
+您可以使用Kotlin DSL将Language加载到语法注册表中，而不需要`languages.json`。
+
+示例：
+
+```Kotlin
+GrammarRegistry.getInstance().loadGrammars(
+    languages {
+        language("java") {
+            grammar = "textmate/java/syntaxes/java.tmLanguage.json"
+            defaultScopeName()
+            languageConfiguration = "textmate/java/language-configuration.json"
+        }
+        language("kotlin") {
+            grammar = "textmate/kotlin/syntaxes/Kotlin.tmLanguage"
+            defaultScopeName()
+            languageConfiguration = "textmate/kotlin/language-configuration.json"
+        }
+        language("python") {
+            grammar = "textmate/python/syntaxes/python.tmLanguage.json"
+            defaultScopeName()
+            languageConfiguration = "textmate/python/language-configuration.json"
+        }
+    }
+)
+```
+
+`defaultScopeName()`会将`scopeName`设置为`source.${languageName}`。
+
+:::
+
 #### 设置编辑器
 
 设置编辑器的配色方案。如果`TextMateColorScheme`没被应用到编辑器中，则textmate的语法高亮结果的颜色是透明的。
