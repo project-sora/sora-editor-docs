@@ -319,3 +319,58 @@ TreeSitter是一个解析器生成器工具和一个增量解析库。
 * [TreeSitter文档](https://tree-sitter.github.io/tree-sitter/)
 * [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 * [Zed Languages](https://github.com/zed-industries/zed/tree/main/crates/zed/src/languages)
+
+#### 创建语言详细说明
+
+首先，`TsLanguageSpec`应该由tree-sitter语言实例和`scm`源文本创建。您可能需要为您的`locals.scm`添加一个自定义的[`LocalsCaptureSpec`](https://github.com/Rosemoe/sora-editor/blob/main/language-treesitter/src/main/java/io/github/rosemoe/sora/editor/ts/LocalsCaptureSpec.kt)。
+
+```Kotlin
+val spec = TsLanguageSpec(
+    // 您的tree-sitter语言实例
+    language = TSLanguageJava.getInstance(),
+    // scm原文本
+    highlightScmSource = assets.open("tree-sitter-queries/java/highlights.scm")
+        .reader().readText(),
+    codeBlocksScmSource = assets.open("tree-sitter-queries/java/blocks.scm")
+        .reader().readText(),
+    bracketsScmSource = assets.open("tree-sitter-queries/java/brackets.scm")
+        .reader().readText(),
+    localsScmSource = assets.open("tree-sitter-queries/java/locals.scm")
+        .reader().readText(),
+    localsCaptureSpec = object : LocalsCaptureSpec() {
+        // 覆盖和更改任何语言详细说明的方法
+    }
+)
+```
+
+有时，您的`scm`文件使用外部谓词方法（客户端谓词）来更好地查询语法树。在这种情况下，请将谓词实现添加到`predicates`参数中。
+
+#### 制作Language和主题
+
+使用您的[TsLanguageSpec]和主题构建器DSL语法创建一个[TsLanguage]
+
+```Kotlin
+// 在Kotlin中轻松制作文本样式的扩展功能
+import io.github.rosemoe.sora.lang.styling.textStyle
+
+// ...
+val language = TsLanguage(languageSpec, false /* useTab */) {
+    // 主题构建器DSL
+    // 将文本样式应用于捕获的语法节点
+
+    // 将样式应用于单一类型的节点
+    textStyle(KEYWORD, bold = true) applyTo "keyword"
+    // 应用于多个节点
+    textStyle(LITERAL) applyTo arrayOf("constant.builtin", "string", "number")
+}
+```
+
+#### 应用Language
+
+现在，Language实例可以应用于编辑器。
+
+```Kotlin
+editor.setEditorLanguage(language)
+```
+
+请注意，`TsLanguageSpec`对象不可重复使用，因为`TsLanguage`被销毁时它也会被关闭。

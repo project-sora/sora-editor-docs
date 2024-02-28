@@ -85,7 +85,7 @@ function guideReference(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '概述', link: 'editor-overview' },
         { text: '快速开始', link: 'getting-started' },
-        { text: '语言', link: 'using-language' },
+        { text: '语言支持', link: 'using-language' },
         { text: '配色方案', link: 'using-color-scheme' }
       ]
     }
