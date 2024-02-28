@@ -58,7 +58,7 @@ function nav(): DefaultTheme.NavItem[] {
     },
     {
       text: '参考',
-      link: '/zh/reference/no-implemention',
+      link: '/zh/reference/xml-attributes',
       activeMatch: '/zh/reference/'
     },
     {
@@ -96,7 +96,7 @@ function sidebarReference(): DefaultTheme.SidebarItem[] {
   return [
     {
       items: [
-        { text: '未实现', link: 'no-implemention' }
+        { text: 'XML属性', link: 'xml-attributes' }
       ]
     }
   ]
