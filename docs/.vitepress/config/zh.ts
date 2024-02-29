@@ -89,7 +89,14 @@ function guideReference(): DefaultTheme.SidebarItem[] {
         { text: '配色方案', link: 'using-color-scheme' },
         { text: '事件和组件', link: 'events-and-components' }
       ]
-    }
+    },
+    {
+      text: 'Jetpack Compose',
+      collapsed: false,
+      items: [
+        { text: '在Compose中使用代码编辑器', link: 'code-editor-in-compose'}
+      ]
+    },
   ]
 }
 
