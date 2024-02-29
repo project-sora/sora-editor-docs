@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # 配色方案
 
 编辑器的配色方案由(`EditorColorScheme`)管理. 

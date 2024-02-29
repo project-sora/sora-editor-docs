@@ -347,7 +347,7 @@ val spec = TsLanguageSpec(
 
 #### 制作Language和主题
 
-使用您的[TsLanguageSpec]和主题构建器DSL语法创建一个[TsLanguage]
+使用您的`TsLanguageSpec`和主题构建器DSL语法创建一个`TsLanguage`
 
 ```Kotlin
 // 在Kotlin中轻松制作文本样式的扩展功能

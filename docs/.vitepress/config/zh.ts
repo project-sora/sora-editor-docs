@@ -86,7 +86,8 @@ function guideReference(): DefaultTheme.SidebarItem[] {
         { text: '概述', link: 'editor-overview' },
         { text: '快速开始', link: 'getting-started' },
         { text: '语言支持', link: 'using-language' },
-        { text: '配色方案', link: 'using-color-scheme' }
+        { text: '配色方案', link: 'using-color-scheme' },
+        { text: '事件和组件', link: 'events-and-components' }
       ]
     }
   ]
@@ -95,6 +96,7 @@ function guideReference(): DefaultTheme.SidebarItem[] {
 function sidebarReference(): DefaultTheme.SidebarItem[] {
   return [
     {
+      text: '参考',
       items: [
         { text: 'XML属性', link: 'xml-attributes' },
         { text: '快捷键', link: 'keybindings' }
