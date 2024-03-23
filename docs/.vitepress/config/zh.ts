@@ -58,7 +58,7 @@ function nav(): DefaultTheme.NavItem[] {
     },
     {
       text: '参考',
-      link: '/zh/reference/no-implemention',
+      link: '/zh/reference/xml-attributes',
       activeMatch: '/zh/reference/'
     },
     {
@@ -85,18 +85,28 @@ function guideReference(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '概述', link: 'editor-overview' },
         { text: '快速开始', link: 'getting-started' },
-        { text: '语言', link: 'using-language' },
-        { text: '配色方案', link: 'using-color-scheme' }
+        { text: '语言支持', link: 'using-language' },
+        { text: '配色方案', link: 'using-color-scheme' },
+        { text: '事件和组件', link: 'events-and-components' }
       ]
-    }
+    },
+    {
+      text: 'Jetpack Compose',
+      collapsed: false,
+      items: [
+        { text: '在Compose中使用代码编辑器', link: 'code-editor-in-compose'}
+      ]
+    },
   ]
 }
 
 function sidebarReference(): DefaultTheme.SidebarItem[] {
   return [
     {
+      text: '参考',
       items: [
-        { text: '未实现', link: 'no-implemention' }
+        { text: 'XML属性', link: 'xml-attributes' },
+        { text: '快捷键', link: 'keybindings' }
       ]
     }
   ]
