@@ -161,7 +161,7 @@ var component = editor.getComponent(EditorAutoCompletion.class);
 
 ::: code-group
 ```Kotlin Kotlin
-component.enabled = false
+component.isEnabled = false
 ```
 ```Java Java
 component.setEnabled(false);
