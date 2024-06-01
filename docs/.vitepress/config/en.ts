@@ -92,7 +92,8 @@ function guideReference(): DefaultTheme.SidebarItem[] {
       text: 'Jetpack Compose',
       collapsed: false,
       items: [
-        { text: 'CodeEditor in Compose', link: 'code-editor-in-compose'}
+        { text: 'CodeEditor in Compose', link: 'code-editor-in-compose'},
+        { text: 'Using ComposeView in PopupWindow', link: 'using-composeview-in-popupwindow'},
       ]
     },
     {
