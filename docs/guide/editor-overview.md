@@ -2,9 +2,9 @@
 outline: deep
 ---
 # Overview
-Sora Editor is an Android View library for editting code, with instant syntax-highlight and real-time auto-completion support.
+Sora Editor is an Android View library for editing code, with instant syntax-highlight and real-time auto-completion support.
 
-The editor is desgined to be effective, smoooth and pluggable, and you can easily start a code editting app by integrating our library into your project.
+The editor is desgined to be effective, smooth and pluggable, and you can easily start a code editting app by integrating our library into your project.
 
 
 <div class="tip custom-block" style="padding-top: 8px">

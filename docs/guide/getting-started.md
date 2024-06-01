@@ -152,7 +152,7 @@ repositories {
 
 If you use `language-textmate` module in your project, and want to run the application on devices under Android 13 (API 33), you **must** enable [Core Library Desugaring](https://developer.android.google.cn/studio/write/java8-support#library-desugaring) to avoid compatibility issues. Otherwise, you can go on to next section.
 
-To enable the desugaring, follow the instructions below to setup your **application module**.
+To enable the desugaring, follow the instructions below to setup your **application module**. Note that the following instructions are for AGP 7.4.0 or above.
 
 * Add Desugaring Dependency
 ::: code-group
@@ -190,6 +190,16 @@ android {
 }
 ```
 
+:::
+
+::: warning BE CAUTIOUS
+When desugaring is enabled, you should build the production APK in Android Studio by:
+* Build from menu `Build` | `Build Bundle(s) / APK(s)` | `Build APK(s)`
+* Or, run Gradle task `assemble<Variant>`. For example, execute `assembleDebug` for your `debug` variant.
+
+Android Studio tries to speed up the desugaring process when you run the application on a specific device from clicking the `Run` button (or shortcuts `Shift+F10`). It will generate a device API specific APK, and as a result the APK may not work properly on other devices.
+
+Alternatively, you can disable this feature in Android Studio by disabling `Experimental > Optimize build for target device API level only` in preferences to avoid this issue.
 :::
 
 ## Create the Widget

@@ -145,7 +145,7 @@ Components can be disabled.
 ::: code-group
 
 ```Kotlin Kotlin
-component.enabled = false
+component.isEnabled = false
 ```
 
 ```Java Java
