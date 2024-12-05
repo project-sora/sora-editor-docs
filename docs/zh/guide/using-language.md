@@ -36,6 +36,13 @@ textmate支持非常多的语言，它的语法高亮规则由名为`*.tmLanguag
 * [TM4E语言包](https://github.com/eclipse/tm4e/tree/25e7fbe39c02644ca5d541d20a2c601791af7b8d/org.eclipse.tm4e.language_pack/syntaxes)
 * [VSCode扩展](https://github.com/microsoft/vscode/tree/4f2ff19ecacffa0aa4874db4d63ed4e899d98431/extensions)
 
+::: tip 注意
+
+当前的 TextMate 引擎对某些 TextMate 语法文件支持不完全。这是正则表达式库 [Joni](https://github.com/jruby/joni) 对这些语法文件中的正则表达式支持不完全导致的。
+
+在进行高亮分析时，这些不受支持的正则表达式将用 `^$` 代替以避免产生错误。
+
+:::
 #### 查找主题
 
 textmate必须和textmate主题搭配使用。你还需要从[VSCode Extensions](https://github.com/microsoft/vscode/tree/4f2ff19ecacffa0aa4874db4d63ed4e899d98431/extensions)

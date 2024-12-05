@@ -21,6 +21,14 @@ TextMate supports various languages, and syntax-highlight rules are defined by `
 You can find those files in:
 * [TM4E Language Packs](https://github.com/eclipse/tm4e/tree/25e7fbe39c02644ca5d541d20a2c601791af7b8d/org.eclipse.tm4e.language_pack/syntaxes)
 * [VSCode Extensions](https://github.com/microsoft/vscode/tree/4f2ff19ecacffa0aa4874db4d63ed4e899d98431/extensions)
+
+::: tip NOTE
+
+Some TextMate syntaxes are not fully supported by current TextMate engine. Because the regexp library [Joni](https://github.com/jruby/joni) does not fully support those regular expressions used in grammar files. 
+
+These regexps will fallback to `^$` to avoid errors during highlight analysis.
+
+:::
 #### Find Themes
 TextMate must be used together with TextMate themes. You also need to find theme JSON files from [VSCode Extensions](https://github.com/microsoft/vscode/tree/4f2ff19ecacffa0aa4874db4d63ed4e899d98431/extensions).
 There are some folders named in `theme-*` pattern. Those folders are for VSCode built-in TextMate themes.
