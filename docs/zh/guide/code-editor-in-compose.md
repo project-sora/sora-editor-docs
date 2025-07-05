@@ -14,7 +14,7 @@ Jetpack Compose是用于Android开发的新框架。如果您尝试使用Sora Ed
 
 ```kotlin
 data class CodeEditorState(
-    val editor: CodeEditor? = null,
+    var editor: CodeEditor? = null,
     val initialContent: Content = Content()
 ) {
     var content by mutableStateOf(initialContent)
@@ -99,12 +99,21 @@ fun CodeEditor(
 
 ### 为`CodeEditor`的状态设置`LaunchedEffect`
 
-当`CodeEditor`的状态发生变化时执行某些代码，我们需要使用`LaunchedEffect`
+AndroidView在重组时不会重新执行factory，当`CodeEditor`的状态发生变化时执行某些代码，我们需要使用`update`参数
 
 ```kotlin
-LaunchedEffect(key1 = state.content) {
-    state.editor?.setText(state.content)
-}
+...
+AndroidView(
+    factory = { editor },
+    modifier = modifier,
+    onRelease = {
+        it.release()
+    },
+    update = {
+        it.setText(state.content)
+    }
+)
+....
 ```
 
 ## 使用`CodeEditor`可组合项
