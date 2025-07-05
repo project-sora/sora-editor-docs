@@ -46,7 +46,7 @@ If you are not using Gradle as your build system, we won't provide information r
 :::
 ## Add Dependencies
 
-Newest Version: [![Maven Central](https://img.shields.io/maven-central/v/io.github.Rosemoe.sora-editor/editor.svg?label=Maven%20Central)]((https://search.maven.org/search?q=io.github.Rosemoe.sora-editor%20editor))
+Newest Version: [![Maven Central](https://img.shields.io/maven-central/v/io.github.rosemoe/editor.svg?label=Maven%20Central)]((https://search.maven.org/search?q=io.github.rosemoe%20editor))
 
 Add sora-editor library to your app's dependencies:
 
@@ -54,15 +54,15 @@ Add sora-editor library to your app's dependencies:
 
 ```Kotlin{2-3} [Kotlin DSL]
 dependencies {
-    implementation(platform("io.github.Rosemoe.sora-editor:bom:<versionName>"))
-    implementation("io.github.Rosemoe.sora-editor:<moduleName>")
+    implementation(platform("io.github.rosemoe:editor-bom:<versionName>"))
+    implementation("io.github.rosemoe:<moduleName>")
 }
 ```
 
 ```Groovy{2-3} [Groovy DSL]
 dependencies {
-    implementation(platform("io.github.Rosemoe.sora-editor:bom:<versionName>"))
-    implementation 'io.github.Rosemoe.sora-editor:<moduleName>'
+    implementation(platform("io.github.rosemoe:editor-bom:<versionName>"))
+    implementation 'io.github.rosemoe:<moduleName>'
 }
 ```
 
@@ -76,33 +76,33 @@ Here's an example for those who want to use TextMate grammars for syntax-highlig
 
 ```Kotlin{2-4} [Kotlin DSL]
 dependencies {
-    implementation(platform("io.github.Rosemoe.sora-editor:bom:0.23.2"))
-    implementation("io.github.Rosemoe.sora-editor:editor")
-    implementation("io.github.Rosemoe.sora-editor:language-textmate")
+    implementation(platform("io.github.rosemoe:editor-bom:0.23.7"))
+    implementation("io.github.rosemoe:editor")
+    implementation("io.github.rosemoe:language-textmate")
 }
 ```
 
 ```Groovy{2-4} [Groovy DSL]
 dependencies {
-    implementation(platform("io.github.Rosemoe.sora-editor:bom:0.23.2"))
-    implementation 'io.github.Rosemoe.sora-editor:editor'
-    implementation 'io.github.Rosemoe.sora-editor:language-textmate'
+    implementation(platform("io.github.rosemoe:editor-bom:0.23.7"))
+    implementation 'io.github.rosemoe:editor'
+    implementation 'io.github.rosemoe:language-textmate'
 }
 ```
 
 ```Kotlin{2-4} [Kotlin DSL without bom]
 dependencies {
-    val editorVersion = "0.23.2"
-    implementation("io.github.Rosemoe.sora-editor:editor:$editorVersion")
-    implementation("io.github.Rosemoe.sora-editor:language-textmate:$editorVersion")
+    val editorVersion = "0.23.7"
+    implementation("io.github.rosemoe:editor:$editorVersion")
+    implementation("io.github.rosemoe:language-textmate:$editorVersion")
 }
 ```
 
 ```Groovy{2-4} [Groovy DSL without bom]
 dependencies {
-    def editorVersion = '0.23.2'
-    implementation 'io.github.Rosemoe.sora-editor:editor:$editorVersion'
-    implementation 'io.github.Rosemoe.sora-editor:language-textmate:$editorVersion'
+    def editorVersion = '0.23.7'
+    implementation 'io.github.rosemoe:editor:$editorVersion'
+    implementation 'io.github.rosemoe:language-textmate:$editorVersion'
 }
 ```
 
@@ -126,27 +126,6 @@ Check the table below to get more information about the modules.
 | language-java       | A simple implementation for Java lexer-based highlighting and identifier auto-completion                                                                                                                                                                                                                                                                                                                           |
 | language-textmate   | An advanced highlighter for the editor. It can be used to load TextMate language bundles and themes. The internal implementation of TextMate is from [tm4e](https://github.com/eclipse/tm4e)                                                                                                                                                                                                                      |
 | language-treesitter | Offer [tree-sitter](https://tree-sitter.github.io/tree-sitter/) support for editor. This can be used to parse the code to an AST fast and incrementally, which is helpful for accurate highlighting and providing completions. Note that this module only provides incremental parsing and highlighting. Thanks to Java bindings [android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter/) |
-### 🚧Snapshot Builds
-
-Generally, it is recommended to use [released versions](https://github.com/Rosemoe/sora-editor/releases). But sometimes you may still want to use nightly builds for latest bug fixes and enhancements.
-
-::: details How to Use Snapshot Builds
-
-Snapshot versions are automatically published on repository push. You may combine current released version name
-and short commit hash to make a snapshot version name. 
-
-For example, if the latest released version name is '0.21.1' and
-short commit hash is '97c4963', you may use version name '0.21.1-97c4963-SNAPSHOT' to import the snapshot version to your project.
-
-Note that adding extra maven repository is required:
-```Kotlin{3}
-repositories {
-    // ...
-    maven("https://s01.oss.sonatype.org/content/repositories/snapshots")
-}
-```
-
-:::
 
 ## Configure Desugaring for TextMate
 
