@@ -138,13 +138,13 @@ To enable the desugaring, follow the instructions below to setup your **applicat
 
 ```Kotlin [Kotlin DSL]
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4") // [!code highlight]
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5") // [!code highlight]
 }
 ```
 
 ```Groovy [Groovy DSL]
 dependencies {
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4' // [!code highlight]
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5' // [!code highlight]
 }
 ```
 
