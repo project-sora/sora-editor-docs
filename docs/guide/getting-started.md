@@ -127,6 +127,29 @@ Check the table below to get more information about the modules.
 | language-textmate   | An advanced highlighter for the editor. It can be used to load TextMate language bundles and themes. The internal implementation of TextMate is from [tm4e](https://github.com/eclipse/tm4e)                                                                                                                                                                                                                      |
 | language-treesitter | Offer [tree-sitter](https://tree-sitter.github.io/tree-sitter/) support for editor. This can be used to parse the code to an AST fast and incrementally, which is helpful for accurate highlighting and providing completions. Note that this module only provides incremental parsing and highlighting. Thanks to Java bindings [android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter/) |
 
+### 🚧Snapshot Builds
+
+Generally, it is recommended to use [released versions](https://github.com/Rosemoe/sora-editor/releases). But sometimes you may still want to use nightly builds for latest bug fixes and enhancements.
+
+::: details How to Use Snapshot Builds
+
+Snapshot versions are automatically published on repository push. You may combine current released version name
+and `-SNAPSHOT` to make a snapshot version name. 
+
+For example, if the latest released version name is `0.23.7`, you may use version name `0.23.7-SNAPSHOT` to import the snapshot version to your project.
+
+Note that adding extra maven repository is required:
+```Kotlin{3}
+repositories {
+    // ...
+    maven("https://central.sonatype.com/repository/maven-snapshots")
+}
+```
+
+Due to Central Portal limitations, the snapshot version is only kept for 90 days.
+
+:::
+
 ## Configure Desugaring for TextMate
 
 If you use `language-textmate` module in your project, and want to run the application on devices under Android 13 (API 33), you **must** enable [Core Library Desugaring](https://developer.android.google.cn/studio/write/java8-support#library-desugaring) to avoid compatibility issues. Otherwise, you can go on to next section.

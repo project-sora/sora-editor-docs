@@ -127,6 +127,27 @@ dependencies {
 | language-textmate   | 一个高级的高亮分析库。你可以借助它来加载textmate语言配置文件并应用于本编辑器。 内部实现来自[tm4e](https://github.com/eclipse/tm4e)。                                                                                                                                                                                     |
 | language-treesitter | 为编辑器提供[tree-sitter](https://tree-sitter.github.io/tree-sitter/)支持。tree-sitter可用于快速、增量地将代码转换 成抽象语法树，以便您向用户提供精确的高亮和自动补全功能。注意此模块仅提供了转换和高亮支持。感谢[android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter/)项目提供的Java绑定库。 |
 
+### 🚧快照构建
+
+通常情况下我们建议使用[正式发布的版本](https://github.com/Rosemoe/sora-editor/releases)。但有时候您可能需要使用最新的构建版本以取得最新的错误修复和功能更新。
+
+::: details 如何使用快照构建
+
+快照版本在存储库推送时自动发布。您可以将当前发布的版本名称和 `-SNAPSHOT` 组合在一起，得到快照版本名称。
+
+举个例子, 如果目前最新正式发布的版本是 `0.23.7`，则可以将 `0.23.7-SNAPSHOT` 作为版本号导入快照版本到您的项目中。
+
+需要注意的是，使用快照版本您需要额外添加一个maven存储库：
+```Kotlin{3}
+repositories {
+    // ...
+    maven("https://central.sonatype.com/repository/maven-snapshots")
+}
+```
+
+由于 Central Portal 的限制，快照版本仅会保留 90 天。
+
+:::
 
 ## 为TextMate配置脱糖
 
