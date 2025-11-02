@@ -76,7 +76,7 @@ dependencies {
 
 ```Kotlin{2-4} [Kotlin DSL]
 dependencies {
-    implementation(platform("io.github.Rosemoe:editor-bom:0.23.7"))
+    implementation(platform("io.github.rosemoe:editor-bom:0.23.7"))
     implementation("io.github.rosemoe:editor")
     implementation("io.github.rosemoe:language-textmate")
 }
