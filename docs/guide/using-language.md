@@ -186,6 +186,17 @@ GrammarRegistry.getInstance().loadGrammars(
 
 :::
 
+#### Optional Step
+
+TextMate uses Joni by default. Joni is a regexp library implemented in pure Java so during regexp matching, a bunch of objects are allocated and this 
+add pressure for ART GC.
+
+We introduced native [oniguruma](https://github.com/kkos/oniguruma) implementation to match regexps since version `0.24.0`, you may include `oniguruma-native` module to enable it. This brings faster highlighting speed and less JVM heap allocations.
+
+Also, oniguruma is the regexp library used by VSCode, so with the library included you may use more TextMate bundles from VSCode.
+
+Our [forked oniguruma](https://github.com/project-sora/oniguruma) currently supports up to Unicode 17.0.0.
+
 #### Setup Editor
 Set color scheme for the editor. If `TextMateColorScheme` is not applied to the editor, the colors of syntax-highlight result from TextMate will be transparent.
 ::: code-group

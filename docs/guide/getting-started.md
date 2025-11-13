@@ -126,6 +126,7 @@ Check the table below to get more information about the modules.
 | language-java       | A simple implementation for Java lexer-based highlighting and identifier auto-completion                                                                                                                                                                                                                                                                                                                           |
 | language-textmate   | An advanced highlighter for the editor. It can be used to load TextMate language bundles and themes. The internal implementation of TextMate is from [tm4e](https://github.com/eclipse/tm4e)                                                                                                                                                                                                                      |
 | language-treesitter | Offer [tree-sitter](https://tree-sitter.github.io/tree-sitter/) support for editor. This can be used to parse the code to an AST fast and incrementally, which is helpful for accurate highlighting and providing completions. Note that this module only provides incremental parsing and highlighting. Thanks to Java bindings [android-tree-sitter](https://github.com/AndroidIDEOfficial/android-tree-sitter/) |
+| oniguruma-native | Regexp library for language-textmate. Not used by default. |
 
 ### 🚧Snapshot Builds
 
