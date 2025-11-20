@@ -217,6 +217,16 @@ GrammarRegistry.getInstance().loadGrammars(
 
 :::
 
+#### Optional Step
+
+TextMate 默认情况下使用 Joni 作为正则表达式库。Joni 是由纯 Java 实现的，因此在正则表达式匹配过程中，将会生成大量的对象，给虚拟机带来 GC 压力。
+
+为此，我们在 `0.24.0` 版本中引入了原生的 [oniguruma](https://github.com/kkos/oniguruma) 实现，您可以引入 `oniguruma-native` 模块以启用它。这能够加速 TextMate 的高亮速度并减少内存分配。
+
+oniguruma 也是 VSCode 使用的正则表达式库，因此在引入它之后，您应该能使用更多来自 VSCode 的 TextMate Bundles.
+
+我们的[oniguruma 分支](https://github.com/project-sora/oniguruma) 目前支持 Unicode 17.0.0.
+
 #### 设置编辑器
 
 设置编辑器的配色方案。如果`TextMateColorScheme`没被应用到编辑器中，则textmate的语法高亮结果的颜色是透明的。
