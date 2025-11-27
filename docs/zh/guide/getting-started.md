@@ -76,7 +76,7 @@ dependencies {
 
 ```Kotlin{2-4} [Kotlin DSL]
 dependencies {
-    implementation(platform("io.github.rosemoe:editor-bom:0.24.0"))
+    implementation(platform("io.github.rosemoe:editor-bom:0.24.1"))
     implementation("io.github.rosemoe:editor")
     implementation("io.github.rosemoe:language-textmate")
 }
@@ -84,7 +84,7 @@ dependencies {
 
 ```Groovy{2-4} [Groovy DSL]
 dependencies {
-    implementation(platform("io.github.rosemoe:editor-bom:0.24.0"))
+    implementation(platform("io.github.rosemoe:editor-bom:0.24.1"))
     implementation 'io.github.rosemoe:editor'
     implementation 'io.github.rosemoe:language-textmate'
 }
@@ -92,7 +92,7 @@ dependencies {
 
 ```Kotlin{2-4} [Kotlin DSL(不使用bom)]
 dependencies {
-    val editorVersion = "0.24.0"
+    val editorVersion = "0.24.1"
     implementation("io.github.rosemoe:editor:$editorVersion")
     implementation("io.github.rosemoe:language-textmate:$editorVersion")
 }
@@ -100,7 +100,7 @@ dependencies {
 
 ```Groovy{2-4} [Groovy DSL(不使用bom)]
 dependencies {
-    def editorVersion = '0.24.0'
+    def editorVersion = '0.24.1'
     implementation 'io.github.rosemoe:editor:$editorVersion'
     implementation 'io.github.rosemoe:language-textmate:$editorVersion'
 }
@@ -137,7 +137,7 @@ dependencies {
 
 快照版本在存储库推送时自动发布。您可以将当前发布的版本名称和 `-SNAPSHOT` 组合在一起，得到快照版本名称。
 
-举个例子, 如果目前最新正式发布的版本是 `0.24.0`，则可以将 `0.24.0-SNAPSHOT` 作为版本号导入快照版本到您的项目中。
+举个例子, 如果目前最新正式发布的版本是 `0.24.1`，则可以将 `0.24.1-SNAPSHOT` 作为版本号导入快照版本到您的项目中。
 
 需要注意的是，使用快照版本您需要额外添加一个maven存储库：
 ```Kotlin{3}
