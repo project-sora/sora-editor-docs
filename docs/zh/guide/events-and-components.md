@@ -40,6 +40,10 @@ outline: deep
 * ContextClickEvent
 * HoverEvent
 * CreateContextMenuEvent
+* TextSizeChangeEvent
+* PublishSearchResultEvent
+* LayoutStateChangeEvent
+* PublishDiagnosticsEvent
 :::
 
 ### 订阅事件

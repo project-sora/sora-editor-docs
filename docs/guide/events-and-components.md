@@ -34,6 +34,10 @@ Frequently used:
 * ContextClickEvent
 * HoverEvent
 * CreateContextMenuEvent
+* TextSizeChangeEvent
+* PublishSearchResultEvent
+* LayoutStateChangeEvent
+* PublishDiagnosticsEvent
 :::
 ### Subscribe Event
 Usually, we use `CodeEditor#subscribeEvent` to add callbacks for certain type of event.
