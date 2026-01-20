@@ -76,7 +76,7 @@ Here's an example for those who want to use TextMate grammars for syntax-highlig
 
 ```Kotlin{2-4} [Kotlin DSL]
 dependencies {
-    implementation(platform("io.github.rosemoe:editor-bom:0.24.1"))
+    implementation(platform("io.github.rosemoe:editor-bom:0.24.4"))
     implementation("io.github.rosemoe:editor")
     implementation("io.github.rosemoe:language-textmate")
 }
@@ -84,7 +84,7 @@ dependencies {
 
 ```Groovy{2-4} [Groovy DSL]
 dependencies {
-    implementation(platform("io.github.rosemoe:editor-bom:0.24.1"))
+    implementation(platform("io.github.rosemoe:editor-bom:0.24.4"))
     implementation 'io.github.rosemoe:editor'
     implementation 'io.github.rosemoe:language-textmate'
 }
@@ -92,7 +92,7 @@ dependencies {
 
 ```Kotlin{2-4} [Kotlin DSL without bom]
 dependencies {
-    val editorVersion = "0.24.1"
+    val editorVersion = "0.24.4"
     implementation("io.github.rosemoe:editor:$editorVersion")
     implementation("io.github.rosemoe:language-textmate:$editorVersion")
 }
@@ -100,7 +100,7 @@ dependencies {
 
 ```Groovy{2-4} [Groovy DSL without bom]
 dependencies {
-    def editorVersion = '0.24.1'
+    def editorVersion = '0.24.4'
     implementation 'io.github.rosemoe:editor:$editorVersion'
     implementation 'io.github.rosemoe:language-textmate:$editorVersion'
 }
@@ -138,7 +138,7 @@ Generally, it is recommended to use [released versions](https://github.com/Rosem
 Snapshot versions are automatically published on repository push. You may combine current released version name
 and `-SNAPSHOT` to make a snapshot version name. 
 
-For example, if the latest released version name is `0.24.1`, you may use version name `0.24.1-SNAPSHOT` to import the snapshot version to your project.
+For example, if the latest released version name is `0.24.4`, you may use version name `0.24.4-SNAPSHOT` to import the snapshot version to your project.
 
 Note that adding extra maven repository is required:
 ```Kotlin{3}

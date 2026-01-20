@@ -76,7 +76,7 @@ dependencies {
 
 ```Kotlin{2-4} [Kotlin DSL]
 dependencies {
-    implementation(platform("io.github.rosemoe:editor-bom:0.24.1"))
+    implementation(platform("io.github.rosemoe:editor-bom:0.24.4"))
     implementation("io.github.rosemoe:editor")
     implementation("io.github.rosemoe:language-textmate")
 }
@@ -84,7 +84,7 @@ dependencies {
 
 ```Groovy{2-4} [Groovy DSL]
 dependencies {
-    implementation(platform("io.github.rosemoe:editor-bom:0.24.1"))
+    implementation(platform("io.github.rosemoe:editor-bom:0.24.4"))
     implementation 'io.github.rosemoe:editor'
     implementation 'io.github.rosemoe:language-textmate'
 }
@@ -92,7 +92,7 @@ dependencies {
 
 ```Kotlin{2-4} [Kotlin DSL(不使用bom)]
 dependencies {
-    val editorVersion = "0.24.1"
+    val editorVersion = "0.24.4"
     implementation("io.github.rosemoe:editor:$editorVersion")
     implementation("io.github.rosemoe:language-textmate:$editorVersion")
 }
@@ -100,7 +100,7 @@ dependencies {
 
 ```Groovy{2-4} [Groovy DSL(不使用bom)]
 dependencies {
-    def editorVersion = '0.24.1'
+    def editorVersion = '0.24.4'
     implementation 'io.github.rosemoe:editor:$editorVersion'
     implementation 'io.github.rosemoe:language-textmate:$editorVersion'
 }
